@@ -1,0 +1,41 @@
+#showHighScore {
+    align-content: flex-start;
+}
+
+#timer {
+    align-content: flex-end;
+}
+
+#score {
+    align-self: center;
+}
+
+#startbtn {
+    position: relative;
+}
+
+header {
+    margin-top: 20px;
+}
+
+main{
+    margin: 15px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+p {
+    border: 10px;
+}
+
+#welcomePage {
+
+}
+
+#questions {
+    display: flex;
+    justify-content: center;
+}
+

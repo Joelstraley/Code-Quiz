@@ -4,6 +4,33 @@
 // Eventlistener for Start button 
 //Function for 1st question, answers 
 
+
+
+
+
+
+
+startBtn.addEventListener("click", startQuiz); 
+
+
+
+
+
+
+
+
+generateBtn.addEventListener("click", highSchoreButton)
+
+function startQuiz () {
+        startTimer()
+}
+
+function highSchoreButton() {
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode("Click me");
+        x.appendChild(t);
+        document.body.appendChild(x);
+
 ///While loop to create timer
             // time subtracted up if wrong answer chosen 
 
@@ -12,12 +39,15 @@
 /// call on and create style for question
 
 ///create style for buttons
+        // faint color on hover: 
 
 //Loop through questions
 
 //When all questions answere OR time = 0 game is over
 
-///end of game leades to High Score board where initals and score can be saved 
+///end of game leades to High Score board where initals and score can be saved
+                ///High Score board will clear all HTML -- have link in corner 
+         /// document.getElementById(elementID).innerHTML = "";
 
 /* 
 to get answers - li items:document.querySelector("li").getAttribute("right");
