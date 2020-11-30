@@ -11,7 +11,9 @@
 }
 
 #startbtn {
-    position: relative;
+    display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header {
@@ -36,6 +38,12 @@ p {
 
 #questions {
     display: flex;
+    align-items: center;
     justify-content: center;
+    visibility: hidden;
 }
 
+#result {
+    font-style: italic;
+    color: slategray;
+}

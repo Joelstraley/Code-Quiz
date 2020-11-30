@@ -5,31 +5,45 @@
 //Function for 1st question, answers 
 
 
+var questionsObject = [
+      { question: "Which logical operators are supported by JavaScript?",
+        choices: ["and", "or", "not", "all of the above"], 
+        answer:"all of the above",
+        },
+        { question: "A piece of JavaScript programming wrapped in a value is called?",
+        choices: ["Get", "Function", "Log", "Operator"], 
+        answer:"Function",
+        },
+        { question: "A statement starting with 'while' creates...",
+        choices: ["a skip", "an object", "an interval", "a loop"],
+        answer:"a loop",
+        },
+        { question: "The first index of an array is",
+          choices: ["One", "Zero", "A", "Infinity"],
+          answer: "Zero",
+        },
+        { question: "JavaScript recalls values by defining them through a",
+          choices: ["Secret Lockbox", "Variable", "Brain", "Dictionary"]
+          answer: "Variable",        
+        }
+]
 
-
-
+//JavaScript is able to recall vaules by defining them through a 
+//Secret Lockbox, Variable, Brain, Dictionary
+    
 
 
 startBtn.addEventListener("click", startQuiz); 
 
 
-
-
-
-
-
-
-generateBtn.addEventListener("click", highSchoreButton)
+highScoresBtn.addEventListener("click", highScoresChart)
 
 function startQuiz () {
         startTimer()
 }
 
 function highSchoreButton() {
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode("Click me");
-        x.appendChild(t);
-        document.body.appendChild(x);
+     ;
 
 ///While loop to create timer
             // time subtracted up if wrong answer chosen 
@@ -38,8 +52,6 @@ function highSchoreButton() {
 
 /// call on and create style for question
 
-///create style for buttons
-        // faint color on hover: 
 
 //Loop through questions
 
@@ -57,20 +69,3 @@ then change for next set of questions:document.querySelector("li").setAttribute(
 
 document.querySelector("li").style.background = "yellow" */
 
-
-//// Questions: 
-
-// Which logical operators are supported by JavaScript? 
-// and, or, not, all of the above
-
-// A piece of JavaScript programming wrapped in a value is called?
-// Get, Function, Log, Operator 
-
-//A Statement starting with "while" creates...
-//a skip, an object, an interval, a loop 
-
-//The first index of an array is...
-// One, Zero, Infinity, The Best
-
-//JavaScript is able to recall vaules by defining them through a 
-//Secret Lockbox, Variable, Brain, Dictionary
