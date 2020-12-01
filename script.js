@@ -1,111 +1,129 @@
-var startBtn = document.getElementById("#startBtn");
-var questionElement = document.getElementById("#query");
+var title = document.getElementById("title");
+var startBtn = document.getElementById("startBtn");
+var nextButton = document.getElementById("next-btn");
+var questionElement = document.getElementById("query");
 var answerButtonsElement = document.getElementById("answerButtons");
 
 
 var shuffledQuestions, currentQuestionIndex
 
 var score = 0
-var time = 60
 
-var questionSet = [
-      { 
-        question: "Which logical operators are supported by JavaScript?",
-        answers: [
-                {text: "and", correct: false },
-                {text: "or", correct: false},
-                {text: "not", correct: false},
-                {text: "all of the above", correct: true},
-               ]
-        },
-        { 
-        question: "A piece of JavaScript programming wrapped in a value is called?",
-        answers: [
-                {text: "Get", correct: false},
-                {text: "Function", correct: true},
-                {text: "log", correct: false},
-                {text: "Operator", correct: false}
-                ]
-        },
-        { 
-        question: "A statement starting with 'while' creates...",
-        answers: [
-                {text:"a skip", correct: false},
-                {text: "an object", correct: false},
-                {text: "an interval", correct: false},
-                {text: "a loop", correct: true},
-                ]
-        },
-        { 
-        question: "The first index of an array is",
-        answers: [
-                {text: "One", correct: false},
-                {text: "Zero", correct: true},
-                {text: "A", correct: false}, 
-                {text: "Infinity", correct: false},
-                ],
-        },
-        { 
-        question: "JavaScript recalls values by defining them through a",
-        answers: [
-                {text: "Secret Lockbox", correct: false},
-                {text: "Variable", correct: true},
-                {text: "Brain", correct: false},
-                {text: "Dictionary", correct: false},
-                ],
-        },
-],
 
-/* function startTimer() {
+
+function startTimer() {
 var timeleft = 60;
-document.getElementById("timer").textContent = timeleft;
+document.getElementById("timer").textContent = timeLeft;
 document.getElementById("timeHolder").setAttribute("style", "visiblity: visible;");
 var timer = setInterval(function(){
 timeleft--;
-if(timeleft <= 0)
+if(timeleft ==== 0) 
     clearInterval(timer);
-    //*go to Insert Initials page 
-}, 1000),
-}, */
+        gameOver(); /// or gameFail 
+}, 1000);
+} 
 
-function generateQuestion() {
-        showQuestion(shuffledQuestions[currentQuestionIndex]);
-},
 
-function showQuestion(question) {
-        questionElement.innerText = question.question;
-        question.answers.forEach(answer => {
-                var button = document.createElement('button')
-                button.innerText = answer.text
-                button.classList.add('btn')
-                if (answer.correct) {
-                   button.dataset.correct = answer.correct;
-                   score++
-                }
-        button.addEventListener('click', selectAnswer)
-
-        })
-
-},
-
-function selectAnswer() {
-
-},
-
-function startQuiz () {
-        console.log("started");
-        // hides the CODING QUIZ title // 
-        document.getElementById("#title").setAttribute("style", "visibility:hidden;");
+function startQuiz() {
+        // hides the CODING QUIZ title and Start Button // 
+        title.setAttribute("style", "visibility:hidden;");
+        startBtn.setAttribute("style", "visibility: hidden;");
         // makes the questions appear randomly //
         shuffledQuestions = questions.sort(() => Math.random() - .5);
         currentQuestionIndex = 0;
         generateQuestion();
         startTimer();
-},
+}
 
 
-                
+function generateQuestion() {
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
 
+function showQuestion(question) {
+        questionElement.innerText = question.question;
+
+}
+
+function resetState() {
+        nextButton.setAttribute("style", "visibility:hidden;");
+        while (answerButtonsElement.firstChild){
+          answersButtonElement.removeChild
+          (answerButtonsElement.firstChild)
+        }
+}
+
+function selectAnswer(e) {
+        var selectedButton = e.target;
+        correct = selectedButton.dataset.correct;
+        setStatusClass(document.body, correct)
+        Array.from(answerButtonsElement.children).forEach(button => {
+          setStatusClass(button, button.dataset.correct)          
+        })
+        nextButton.classList.remove('hide')
+}
+
+function setStatusClass(element, correct){
+        clearStatusClass(element)
+        if (correct) {
+          element.classList.add("correct")
+        } else {
+                element.classList.add("wrong")
+        }
+}
+
+function clearStatusClass(element){
+        element.classList.remove("correct");
+        element.classList.remove("wrong");
+}
+
+var questionSet = [
+        { 
+          question: "Which logical operators are supported by JavaScript?",
+          answers: [
+                  {text: "and", correct: false },
+                  {text: "or", correct: false},
+                  {text: "not", correct: false},
+                  {text: "all of the above", correct: true},
+                 ]
+          },
+          { 
+          question: "A piece of JavaScript programming wrapped in a value is called?",
+          answers: [
+                  {text: "Get", correct: false},
+                  {text: "Function", correct: true},
+                  {text: "log", correct: false},
+                  {text: "Operator", correct: false}
+                  ]
+          },
+          { 
+          question: "A statement starting with 'while' creates...",
+          answers: [
+                  {text:"a skip", correct: false},
+                  {text: "an object", correct: false},
+                  {text: "an interval", correct: false},
+                  {text: "a loop", correct: true},
+                  ]
+          },
+          { 
+          question: "The first index of an array is",
+          answers: [
+                  {text: "One", correct: false},
+                  {text: "Zero", correct: true},
+                  {text: "A", correct: false}, 
+                  {text: "Infinity", correct: false},
+                  ],
+          },
+          { 
+          question: "JavaScript recalls values by defining them through a",
+          answers: [
+                  {text: "Secret Lockbox", correct: false},
+                  {text: "Variable", correct: true},
+                  {text: "Brain", correct: false},
+                  {text: "Dictionary", correct: false},
+                  ],
+          },
+  ]
 
                 /* function startTimer(duration, display) {
                         var timer = duration, minutes, seconds;
@@ -135,8 +153,8 @@ function startQuiz () {
 
 /* highScoresBtn.addEventListener("click", highScoresChart);
  */
-function highSchoreButton() {
-}
+/* function highScoreButton() {
+} */
 
 
 
@@ -166,6 +184,4 @@ then change for next set of questions:document.querySelector("li").setAttribute(
 
 document.querySelector("li").style.background = "yellow" */
 
-
-
-startBtn.addEventListener("click", startQuiz); 
+startBtn.addEventListener("click", startQuiz);
