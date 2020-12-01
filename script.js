@@ -1,7 +1,7 @@
-//Function for 1st question, answers 
 var startBtn = document.getElementById("#startBtn");
 var questionElement = document.getElementById("#query");
 var answerButtonsElement = document.getElementById("answerButtons");
+
 
 var shuffledQuestions, currentQuestionIndex
 
@@ -54,9 +54,9 @@ var questionSet = [
                 {text: "Dictionary", correct: false},
                 ],
         },
-]
+],
 
-function startTimer(){
+/* function startTimer() {
 var timeleft = 60;
 document.getElementById("timer").textContent = timeleft;
 document.getElementById("timeHolder").setAttribute("style", "visiblity: visible;");
@@ -64,32 +64,44 @@ var timer = setInterval(function(){
 timeleft--;
 if(timeleft <= 0)
     clearInterval(timer);
-    //*go to Insert Initials page*// 
-},1000)
-}
+    //*go to Insert Initials page 
+}, 1000),
+}, */
 
 function generateQuestion() {
         showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
+},
 
 function showQuestion(question) {
         questionElement.innerText = question.question;
+        question.answers.forEach(answer => {
+                var button = document.createElement('button')
+                button.innerText = answer.text
+                button.classList.add('btn')
+                if (answer.correct) {
+                   button.dataset.correct = answer.correct;
+                   score++
+                }
+        button.addEventListener('click', selectAnswer)
 
-}
+        })
 
-function selectAnswer (){
+},
 
-}
+function selectAnswer() {
+
+},
 
 function startQuiz () {
+        console.log("started");
         // hides the CODING QUIZ title // 
-        document.getElementById("title")setAttribute("style", "visibility:hidden;");
+        document.getElementById("#title").setAttribute("style", "visibility:hidden;");
         // makes the questions appear randomly //
         shuffledQuestions = questions.sort(() => Math.random() - .5);
         currentQuestionIndex = 0;
         generateQuestion();
         startTimer();
-
+},
 
 
                 
@@ -116,15 +128,19 @@ function startQuiz () {
                             display = document.querySelector('#time');
                         startTimer(fiveMinutes, display);
                     }; */
+
+
+
+
+
+/* highScoresBtn.addEventListener("click", highScoresChart);
+ */
+function highSchoreButton() {
 }
 
 
 
 
-highScoresBtn.addEventListener("click", highScoresChart);
-
-function highSchoreButton() {
-     ;
 
 ///While loop to create timer
             // time subtracted up if wrong answer chosen 
@@ -149,5 +165,7 @@ document.querySelector("li").getAttribute("wrong");
 then change for next set of questions:document.querySelector("li").setAttribute("right","wrong")
 
 document.querySelector("li").style.background = "yellow" */
+
+
 
 startBtn.addEventListener("click", startQuiz); 
