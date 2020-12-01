@@ -13,8 +13,8 @@
             <div class="col-6">
               <button id="showHighScores" class="btn btn-info" type="button">View High Scores</button>
             </div>
-             <div class="col-3" id="score">Score: </div>
-            <div class="col-3" id="timeHolder">Time:<span id="timer"></span> </div>
+             <div class="col-3" id="scoreHolder">Score: <span id="score"> </span> </div>
+            <div class="col-3" id="timeHolder">Time: <span id="timer"></span> </div>
         </header>
     <main class="row" id="mainPage">
         <div class="col-12">
@@ -27,10 +27,10 @@
                 <br> Press start to begin!</span></p>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <button class="btn btn-info" type="button" id="startbtn">Start Quiz</button>
+            <button class="btn btn-info" type="button" id="startBtn">Start Quiz</button>
         </div>
      </main>
-     <section class="row" id="answerButtons">
+     <section class="row" id="answerButtons" style="display: none;">
         <div class="col-12 d-flex justify-content-center">
              <button class="btn btn-info" type="button"></button>
         </div>
@@ -45,8 +45,16 @@
         </div>
      </section>
      <hr>
-     <footer class="col-12 d-flex justify-content-center" id="result">test
-     </footer>   
+     <footer class="col-12 d-flex justify-content-center" id="result">
+        <div class="row">
+        <div class="col-8">
+            <input id="initials" type="text" class="form-control" style="display:none;">
+        </div>
+        <div class="col-4">
+        <button type="submit" class="btn btn-info" style="display: none;">submit</button>
+        </div>   
+    </div>
+    </footer>   
 </div>
     
 </body>

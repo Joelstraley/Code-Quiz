@@ -8,12 +8,12 @@ body {
 }
 
 #timeHolder {
-    visibility: hidden;
+    display: none;
     align-content: flex-end;
 }
 
-#score {
-    visibility: hidden;
+#scoreHolder {
+    display: none;
     align-self: center;
 }
 
