@@ -14,36 +14,39 @@
               <button id="showHighScores" class="btn btn-info" type="button">View High Scores</button>
             </div>
              <div class="col-3" id="score">Score: </div>
-            <div class="col-3" id="timer">Time: </div>
+            <div class="col-3" id="timeHolder">Time:<span id="timer"></span> </div>
         </header>
-    <main class="row" id="welcomePage">
+    <main class="row" id="mainPage">
         <div class="col-12">
-            <h1 style="text-align: center;">Coding Quiz</h1>
+            <h1 style="text-align: center;"><span id="title">Coding Quiz</span></h1>
         </div>
         <div class="col-12">
-            <p style="text-align: center;">You will be asked a series of questions related to Javascript. <br>If your answer is incorrect you will be docked 10 seconds.<br> Good luck. <br> Press start to begin!</p>
+            <p style="text-align: center;"><span id="query">You will be asked a series of questions related to Javascript.
+                <br>If your answer is incorrect you will be docked 10 seconds.
+                <br> Good luck. 
+                <br> Press start to begin!</span></p>
         </div>
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-center">
             <button id="startbtn" class="btn btn-info" type="button">Start Quiz</button>
         </div>
      </main>
-     <section class="row" id="questions">
-        <div class="col-12">
-             <button id="buttonA" class="btn btn-info" type="button"></button>
+     <section class="row" id="answerButtons">
+        <div class="col-12 d-flex justify-content-center">
+             <button class="btn btn-info" type="button"></button>
         </div>
-        <div class="col-12">
-            <button id="buttonB" class="btn btn-info" type="button"></button>
+        <div class="col-12 d-flex justify-content-center">
+            <button class="btn btn-info" type="button"></button>
        </div>
-       <div class="col-12">
-            <button id="buttonC" class="btn btn-info" type="button"></button>
+       <div class="col-12 d-flex justify-content-center">
+            <button class="btn btn-info" type="button"></button>
         </div>
-        <div class="col-12">
-            <button id="buttonD" class="btn btn-info" type="button"></button>
-        </div>
-        <hr>
-        <div id="result">test
+        <div class="col-12 d-flex justify-content-center">
+            <button class="btn btn-info" type="button"></button>
         </div>
      </section>
+     <hr>
+     <footer class="col-12 d-flex justify-content-center" id="result">test
+     </footer>   
 </div>
 
 

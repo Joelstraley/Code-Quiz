@@ -1,19 +1,24 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: wheat;
+}
+
 #showHighScore {
     align-content: flex-start;
 }
 
-#timer {
+#timeHolder {
+    visibility: hidden;
     align-content: flex-end;
 }
 
 #score {
+    visibility: hidden;
     align-self: center;
 }
 
 #startbtn {
-    display: flex;
-  align-items: center;
-  justify-content: center;
+    margin: auto;
 }
 
 header {
@@ -24,26 +29,19 @@ main{
     margin: 15px;
 }
 
+
 h1 {
     font-weight: bold;
 }
 
 p {
-    border: 10px;
+    border: 100px;
 }
-
-#welcomePage {
-
-}
-
-#questions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
+hr {
+width: 500px;
 }
 
 #result {
     font-style: italic;
-    color: slategray;
+    color: dimgrey;
 }
