@@ -1,4 +1,5 @@
 var title = document.getElementById("title");
+var mainPage = document.getElementById("mainPage");
 var startBtn = document.getElementById("startBtn");
 var nextButton = document.getElementById("next-btn");
 var questionElement = document.getElementById("question");
@@ -10,8 +11,14 @@ var timerElement = document.getElementById("timer");
 var inputElement = document.getElementById("initials");
 var inputHolder = document.getElementById("initialsHolder");
 var resultElement = document.getElementById("result");
+var submitBtn = document.getElementsById("submitIntBtn");
+
 
 var shuffledQuestions, currentQuestionIndex
+
+
+// save initials into local storage 
+// have that populate onto a seperate html page (OR delete all contect here.)
 
 var score = 0;
 var timeLeft = 60;
@@ -119,6 +126,7 @@ function gameOver() {
         // and question text reads "Congratulations"
         questionElement.innerText = "Congratulations"
         inputHolder.setAttribute("style", "display: flex;");
+        submitBtn.addEventListener("click", saveInitials);
 }
         
 function showQuestion(question) {
@@ -173,6 +181,14 @@ function setScore(score){
       scoreElement.innerText = score;
 }
 
+function saveInitials(event){
+        var input = document.getElementById("initials");
+        localStorage.setItem("high scores", input.val())
+}
+
+//Score board 
+// mainPage.innerHTML = "";// 
+//var storedValue = localStorage.getItem("high scores");
 
 startBtn.addEventListener("click", startQuiz);
 
