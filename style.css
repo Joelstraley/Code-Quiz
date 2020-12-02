@@ -44,4 +44,6 @@ width: 500px;
 #result {
     font-style: italic;
     color: dimgrey;
+    align-items: center;
+    margin: auto; 
 }

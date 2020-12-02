@@ -1,21 +1,21 @@
 var title = document.getElementById("title");
 var startBtn = document.getElementById("startBtn");
 var nextButton = document.getElementById("next-btn");
-var questionElement = document.getElementById("query");
+var questionElement = document.getElementById("question");
 var answerButtonsElement = document.getElementById("answerButtons");
-var scoreHolderElement = document.getElementsById("scoreHolder");
-var scoreElement = document.getElementsById("score");
+var scoreHolderElement = document.getElementById("scoreHolder");
+var scoreElement = document.getElementById("score");
 var timeHolderElement = document.getElementById("timeHolder");
 var timerElement = document.getElementById("timer");
 var inputElement = document.getElementById("initials");
-var inputHolder 
+var inputHolder = document.getElementById("initialsHolder");
+var resultElement = document.getElementById("result");
 
 var shuffledQuestions, currentQuestionIndex
 
-var score = 0
+var score = 0;
 var timeLeft = 60;
-var running = false
-
+var running = false;
 
 var questionSet = [
         {
@@ -75,76 +75,78 @@ function startTimer() {
                 if(timeLeft <= 0) {
                 gameOver(); /// or gameFail  
                 clearInterval(timer);      
-        } if (!running) {
+        } 
+        if (!running) {
                 clearInterval(timer);
         }
         }, 1000);
 }
-    
+
 
 function startQuiz() {
         // hides the CODING QUIZ title,Start Button - Displays Timer // 
-        title.setAttribute("style", "visibility:hidden;");
-        startBtn.setAttribute("style", "visibility: hidden;");
+        title.setAttribute("style", "display: none;");
+        startBtn.setAttribute("style", "display: none;");
         
-        scoreElement.setAttribute("style", "display: block;");
+        scoreHolderElement.setAttribute("style", "display: block;");
         timeHolderElement.setAttribute("style", "display: block;");
-        // makes the questions appear randomly //
-        shuffledQuestions = questionSet.sort(() => Math.random() - .5);
+        answerButtonsElement.setAttribute("style", "display: block;");
         // set timer and score to 0 
-        running = true
+        running = true;
         setScore(score);
-
+        // makes the questions from array appear randomly //
+        shuffledQuestions = questionSet.sort(() => Math.random() - .5);
+        currentQuestionIndex = 0;
         generateQuestion();
         startTimer();
 }
 
 
 function generateQuestion() {
+                // randomizes question, once array is looped through it goes to Game Over // 
         if (currentQuestionIndex == shuffledQuestions.length){
                 gameOver();
         } else {
-        // randomizes question // 
         showQuestion(shuffledQuestions[currentQuestionIndex]);
         }
 }
 
 function gameOver() {
-        timeLeft = 0;
+        // when game is over the timer is stopped
         running = false;
-        answerButtonsElement.setAttribute("style", "display:none;");
+        // answer buttons are hidden
+        answerButtonsElement.setAttribute("style", "display: none;");
+        // and question text reads "Congratulations"
         questionElement.innerText = "Congratulations"
-        ///prompt for initials 
+        inputHolder.setAttribute("style", "display: flex;");
 }
         
 function showQuestion(question) {
-                questionElBment.innerText = question.question;
+                questionElement.innerText = question.question;
                 var answerButtons = answerButtonsElement.getElementsByClassName("btn")
                 // loop through answers to pull and put in button elements // 
-                for (i = 0; i < answerbuttons.length; i++) {
+                for (i = 0; i < answerButtons.length; i++) {
                         answerButtons[i].innerText = question["answers"][i].text;
                         answerButtons[i].addEventListener("click", selectAnswer);
                 } // takes next question in questionSet Array 
                 currentQuestionIndex++;
-
         }
-
-function resetState() {
-        nextButton.setAttribute("style", "visibility:hidden;");
-        while (answerButtonsElement.firstChild){
-          answersButtonElement.removeChild
-          (answerButtonsElement.firstChild)
-        }
-}
-
+        
+        
 function selectAnswer(event) {
         var correct = checkAnswer(questionElement.innerText, event.srcElement.innerText)
-        if (correct {
-                //score go up
+        if (correct) {
+                //if question is listed correct, score goes up
+                resultElement.innerText = "Correct";
+                score++;
+                setScore(score);
+                console.log(score);
          } else{
-                 // score go down + make time reduce 
+                 // If incorrect time is reduced by 10
+                 resultElement.innerText = "Wrong";
                  timeLeft = timeLeft - 10
-         } )
+         }  // back to generateQuestion function to populate next question
+         generateQuestion();
 }
 
 function checkAnswer(question, answer){
@@ -166,19 +168,13 @@ function checkAnswer(question, answer){
         return false; 
 }
 
-function setStatusClass(element, correct){
-        clearStatusClass(element)
-        if (correct) {
-          element.classList.add("correct")
-        } else {
-                element.classList.add("wrong")
-        }
+function setScore(score){
+        // adds score value to score element
+      scoreElement.innerText = score;
 }
 
-function clearStatusClass(element){
-        element.classList.remove("correct");
-        element.classList.remove("wrong");
-}
+
+startBtn.addEventListener("click", startQuiz);
 
 
 
@@ -233,12 +229,8 @@ function clearStatusClass(element){
                 ///High Score board will clear all HTML -- have link in corner 
          /// document.getElementById(elementID).innerHTML = "";
 
-/* 
-to get answers - li items:document.querySelector("li").getAttribute("right");
-document.querySelector("li").getAttribute("wrong");
 
-then change for next set of questions:document.querySelector("li").setAttribute("right","wrong")
+//to get answers - li items:document.querySelector("li").getAttribute("right");
+//document.querySelector("li").getAttribute("wrong");
 
-document.querySelector("li").style.background = "yellow" */
-
-startBtn.addEventListener("click", startQuiz);
+// then change for next set of questions:document.querySel//

@@ -21,7 +21,7 @@
             <h1 style="text-align: center;"><span id="title">Coding Quiz</span></h1>
         </div>
         <div class="col-12">
-            <p style="text-align: center;"><span id="query">You will be asked a series of questions related to Javascript.
+            <p style="text-align: center;"><span id="question">You will be asked a series of questions related to Javascript.
                 <br>If your answer is incorrect you will be docked 10 seconds.
                 <br> Good luck. 
                 <br> Press start to begin!</span></p>
@@ -43,15 +43,20 @@
         <div class="col-12 d-flex justify-content-center">
             <button class="btn btn-info" type="button"></button>
         </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                  <p><span id="result"></span></p>
+            </div>
+       </div>  
      </section>
-     <hr>
-     <footer class="col-12 d-flex justify-content-center" id="result">
-        <div class="row">
-        <div class="col-8">
-            <input id="initials" type="text" class="form-control" style="display:none;">
+     <footer class="col-12 d-flex justify-content-center">
+        <div class="row" id="initialsHolder" style="display: none;">
+            <div class="col-8">
+            <input id="initials" type="text" class="form-control">
         </div>
         <div class="col-4">
-        <button type="submit" class="btn btn-info" style="display: none;">submit</button>
+           <button type="submit" class="btn btn-info">submit</button>
         </div>   
     </div>
     </footer>   
