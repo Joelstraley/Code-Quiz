@@ -3,6 +3,10 @@ body {
     background-color: wheat;
 }
 
+a:visited {
+    color: white;
+}
+
 #showHighScore {
     align-content: flex-start;
 }

@@ -186,9 +186,18 @@ function saveInitials(event){
     scoreArray.push({"name": input.value, "score":score});
     localStorage.setItem("high-scores", JSON.stringify(scoreArray));
     JSON.parse(localStorage.getItem("high-scores"));
+    getHighScores();
 }
 
-function getHighScores(event){
+function getHighScores(){
+        window.location.href = "highScores.html";
+       
+}
+
+
+
+
+/* function getHighScores(event){
     mainPage.innerHTML = "";
     inputHolder.setAttribute("style", "display: none;");
     submitBtn.setAttribute("style", "display: none;");
@@ -197,10 +206,10 @@ function getHighScores(event){
     var ulElement = document.createElement("ul");
     ulElement.setAttribute("id","scoreBoard");
     ulElement.append(mainPage);
-    for (x of scoreList) {
-        ulElement.append("<li>" + x + "</li>");
-      }
-    }  
+    for (i = 0; i < scoreArray.length; i++){
+        "<li>" + scoreArray[i] + "</li>";
+      } ulElement.innerHTML = return; 
+    }   */
 
     /* {<ul id="people-list">
     <li id="0">Bob <button>edit</button></li>
@@ -221,5 +230,8 @@ function getHighScores(event){
 
 /*  document.body.appendChild(board);
  -playAgainbutton-eventlistener  */
+
+
+
 
 startBtn.addEventListener("click", startQuiz);
