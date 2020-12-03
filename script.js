@@ -19,6 +19,7 @@ var score = 0
 var timeLeft = 60;
 var running = false;
 var scoreArray = [];
+var x;
 
 
 var questionSet = [
@@ -125,6 +126,7 @@ function gameOver() {
             // Submit initials input and button appear
         inputHolder.setAttribute("style", "display: flex;");
         submitBtn.addEventListener("click", saveInitials);
+        submitBtn.addEventListener("click", getHighScores);
 }
 
 function showQuestion(question) {
@@ -181,23 +183,29 @@ function setScore(score) {
 function saveInitials(event){
     var input = document.getElementById("initials");
     // user's initials input and score and set to local storage //
-    scoreArray.push({"name": input.value, "score":score})
-    localStorage.setItem("high scores", scoreArray);
-    getInitials();
+    scoreArray.push({"name": input.value, "score":score});
+    localStorage.setItem("high-scores", JSON.stringify(scoreArray));
+    JSON.parse(localStorage.getItem("high-scores"));
 }
 
-function getInitials(){
+function getHighScores(event){
     mainPage.innerHTML = "";
-    localStorage.getItem("high scores");
-    list = document.createElement("ul");
-    list.setAttribute("id", "scoreList");
-    var i;
-    for (i = 0; i < scoreArray.length; i++) {
-      "<li>" + scoreArray[i] + "</li>";
-    } 
-}
+    inputHolder.setAttribute("style", "display: none;");
+    submitBtn.setAttribute("style", "display: none;");
+    var scoreList = localStorage.getItem("high-scores");
+    console.log(scoreList);
+    var ulElement = document.createElement("ul");
+    ulElement.setAttribute("id","scoreBoard");
+    ulElement.append(mainPage);
+    for (x of scoreList) {
+        ulElement.append("<li>" + x + "</li>");
+      }
+    }  
 
-
+    /* {<ul id="people-list">
+    <li id="0">Bob <button>edit</button></li>
+  </ul>}
+     *
 
 //log score to console
 //Print out as text on page 
@@ -207,9 +215,6 @@ function getInitials(){
 /* <ul>
 <li> name: {{name}} Score: {{score}} </li>
 </ul> // */
-
-
-
 
 // function playAgain button:
  //Playagain button//
