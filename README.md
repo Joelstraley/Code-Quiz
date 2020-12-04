@@ -18,8 +18,8 @@ Repository contains the following:
 * -README.md
 
 ## Screenshots
-![alt text](https://github.com/Joelstraley/Code-Quiz/blob/main/Screenshot%20(168).png?raw=true)
 ![alt text](https://github.com/Joelstraley/Code-Quiz/blob/main/Screenshot%20(169).png?raw=true)
+![alt text](https://github.com/Joelstraley/Code-Quiz/blob/main/Screenshot%20(168).png?raw=true)
 ![alt text](https://github.com/Joelstraley/Code-Quiz/blob/main/Screenshot%20(170).png?raw=true)
 
 
