@@ -18,7 +18,8 @@ var shuffledQuestions, currentQuestionIndex
 var score = 0
 var timeLeft = 60;
 var running = false;
-var scoreArray = [];
+var scoreArray = JSON.parse(localStorage.getItem("high-scores"));
+console.log(scoreArray);
 var x;
 
 
